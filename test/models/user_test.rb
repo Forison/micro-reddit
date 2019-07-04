@@ -3,7 +3,8 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(username: 'janet' ,email: 'janet@yahoo.com' ,country:'Ghana')
-    @valid_email= %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
+    @invalid_email = %w[user@example,com user_at_foo.org user.name@example.
+    foo@bar_baz.com foo@bar+baz.com]
   end
 
   test "the truth" do
@@ -35,6 +36,21 @@ class UserTest < ActiveSupport::TestCase
   test "country should not be too long" do
     @user.country = "a" * 15 
     assert @user.valid?
+  end
+
+  
+  test "email should be invalid" do
+    @invalid_email.each do |invalid_address|
+    @user.email = invalid_address
+    assert_not @user.valid?, "#{invalid_address.inspect} is invalid"
+    end
+  end
+
+  test "email addresses should be unique" do
+    duplicate_user = @user.dup
+    duplicate_user.email = @user.email.upcase
+    @user.save
+    assert duplicate_user.valid?
   end
 
 end
