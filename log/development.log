@@ -25,3 +25,18 @@ Migrating to CreateUsers (20190704133007)
   ↳ bin/rails:9
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "jonki"], ["email", "this@yahoo.com"], ["country", "Ghana"], ["created_at", "2019-07-04 13:37:04.771685"], ["updated_at", "2019-07-04 13:37:04.771685"]]
+  [1m[35m (121.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "jonki"], ["email", " "], ["country", "Ghana"], ["created_at", "2019-07-04 14:42:23.753524"], ["updated_at", "2019-07-04 14:42:23.753524"]]
+  [1m[35m (103.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "thirdy"], ["email", " "], ["country", "Ghana"], ["created_at", "2019-07-04 14:43:23.408822"], ["updated_at", "2019-07-04 14:43:23.408822"]]
+  [1m[35m (98.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["email", "hel@gmail.com"], ["created_at", "2019-07-04 14:44:26.927714"], ["updated_at", "2019-07-04 14:44:26.927714"]]
+  [1m[35m (145.0ms)[0m  [1m[36mcommit transaction[0m
