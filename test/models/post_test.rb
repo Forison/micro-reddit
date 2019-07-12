@@ -2,22 +2,22 @@ require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
   def setup
-    @post = Post.new(comment:"hello my name is mr addo")
+    @post = Post.new(comment: "this our test comment for the post" ,user_id: 1)
   end
-
-  test "return true" do
-    @post.comment = "hello my name is mr addo"
-    assert @post.valid? 
-  end
-
-  test "return false if empty" do
-      @post.comment = "  "
-      assert_not @post.save
+  
+  test "the truth" do
+     @post.comment = "this our test comment for the post"
+     assert true
   end
 
 
-  test "should be return false if comment length is too long" do
-     @post.comment = "a" *2
-     assert @post.save!  
+  test "the post comment should not be empty" do
+    @post.comment = "                  "
+    assert_not @post.save
+  end
+  
+  test "for a minimum length" do
+    @post.comment = "a" *4
+    assert_not @post.valid?
   end
 end

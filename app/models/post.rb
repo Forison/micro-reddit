@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
-  # belongs_to :user_id
-  validates :comment , presence: true, length: {maximum: 2}
+  has_many :comments
+  belongs_to :user
+  validates :comment , presence: true , length: { minimum: 5}
 end
